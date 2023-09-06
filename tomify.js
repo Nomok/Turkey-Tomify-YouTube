@@ -1,9 +1,8 @@
+console.log("top");
 const imagesPath = "images/";
-var useAlternativeImages
-var flipBlacklist
 
 // Apply the overlay
-function applyOverlay(thumbnailElement, overlayImageURL, flip = false) {
+function applyOverlay(thumbnailElement, overlayImageURL) {
   if (thumbnailElement.nodeName == "IMG") {
     // Create a new img element for the overlay
     const overlayImage = document.createElement("img");
@@ -14,9 +13,6 @@ function applyOverlay(thumbnailElement, overlayImageURL, flip = false) {
     overlayImage.style.width = "100%";
     overlayImage.style.height = "100%";
     overlayImage.style.zIndex = "0"; // Ensure overlay is on top but below the time indicator
-    if (flip) {
-      overlayImage.style.transform = "scaleX(-1)"; // Flip the image horizontally
-    }
     thumbnailElement.style.position = "relative"; // Style the thumbnailElement to handle absolute positioning
     thumbnailElement.parentElement.appendChild(overlayImage);
   } else if (thumbnailElement.nodeName == "DIV") {
@@ -35,25 +31,13 @@ function applyOverlayToThumbnails() {
   // Apply overlay to each thumbnail
   thumbnailElements.forEach((thumbnailElement) => {
     // Apply overlay and add to processed thumbnails
-    let loops = Math.random() > 0.001 ? 1 : 20; // Easter egg
 
-    for (let i = 0; i < loops; i++) {
+    for (let i = 0; i < 20; i++) {
       // Get overlay image URL from your directory
-      const overlayImageIndex = getRandomImageFromDirectory();
-      let flip = Math.random() < 0.25; // 25% chance to flip the image
       let overlayImageURL
-      if (flipBlacklist && flip && flipBlacklist.includes(overlayImageIndex)) {
-        if (useAlternativeImages) {
-          overlayImageURL = getImageURL(`textFlipped/${overlayImageIndex}`);
-          flip = false;
-        } else {
-          overlayImageURL = getImageURL(overlayImageIndex);
-          flip = false;
-        }
-      } else {
-        overlayImageURL = getImageURL(overlayImageIndex);
-      }
-      applyOverlay(thumbnailElement, overlayImageURL, flip);
+      overlayImageURL = getImageURL(1);
+      console.log("apply");
+      applyOverlay(thumbnailElement, overlayImageURL, false);
     }
   });
 }
@@ -130,28 +114,11 @@ async function getHighestImageIndex() {
   // Max is the size of the image array
   highestImageIndex = max;
 }
-var blacklistStatus
-
-function GetFlipBlocklist() {
-  fetch(chrome.runtime.getURL(`${imagesPath}flip_blacklist.json`))
-    .then(response => response.json())
-    .then(data => {
-      useAlternativeImages = data.useAlternativeImages;
-      flipBlacklist = data.blacklistedImages;
-
-      blacklistStatus = "Flip blacklist found. " + (useAlternativeImages ? "Images will be substituted." : "Images won't be flipped.")
-    })
-    .catch((error) => {
-      blacklistStatus = "No flip blacklist found. Proceeding without it."
-    });
-}
-
-GetFlipBlocklist()
 
 getHighestImageIndex()
   .then(() => {
     setInterval(applyOverlayToThumbnails, 100);
     console.log(
-      "MrBeastify Loaded Successfully, " + highestImageIndex + " images detected. " + blacklistStatus
+      "Turkey Tomify Loaded Successfully, " + highestImageIndex + " images detected. "
     );
   })
