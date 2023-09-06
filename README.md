@@ -23,5 +23,5 @@ Turns your YouTube thumbnails into one of **[Turkey Tom][Turkey Tom Channel]**'s
 
 
 [Tweet]: https://twitter.com/stainfool/status/1699238994117034471
-[UI Website]: https://github.com/MagicJinn/MrBeastify-Youtube
+[Website]: https://github.com/MagicJinn/MrBeastify-Youtube
 [Turkey Tom Channel]: https://www.youtube.com/@TurkeyTom 
