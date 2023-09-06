@@ -3,9 +3,9 @@
 
 #  Turkey Tomify
 
-<br>
-Turns your YouTube thumbnails into one of **Turkey Tom's** famous edutainment videos.
-<br>
+
+Turns your YouTube thumbnails into one of **[Turkey Tom][Turkey Tom Channel]**'s famous edutainment videos.
+
 </div>
 
 <br>
@@ -24,3 +24,4 @@ Turns your YouTube thumbnails into one of **Turkey Tom's** famous edutainment vi
 
 [Tweet]: https://twitter.com/stainfool/status/1699238994117034471
 [UI Website]: https://github.com/MagicJinn/MrBeastify-Youtube
+[Turkey Tom Channel]: https://www.youtube.com/@TurkeyTom 
