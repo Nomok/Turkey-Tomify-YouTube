@@ -6,6 +6,7 @@
 
 Turns your YouTube thumbnails into one of **[Turkey Tom][Turkey Tom Channel]**'s famous edutainment videos.
 
+[![Button Download Chrome]][Download Chrome] 
 </div>
 
 <br>
@@ -21,6 +22,9 @@ Turns your YouTube thumbnails into one of **[Turkey Tom][Turkey Tom Channel]**'s
 
 <!----------------------------------------------------------------------------->
 
+[Button Download Chrome]: https://img.shields.io/badge/Chrome-4285F4?style=for-the-badge&logoColor=white&logo=GoogleChrome
+
+[Download Chrome]: http://chrome.google.com/webstore/detail/youtube-turkey-tomify/mdjhmemkdkcjiigmeoidmaejbemhmiab
 
 [Tweet]: https://twitter.com/stainfool/status/1699238994117034471
 [Website]: https://github.com/MagicJinn/MrBeastify-Youtube
